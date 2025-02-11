@@ -34,7 +34,7 @@ Your eyes control your focus; this has been backed by neuroscientific studies. H
 
 # Eventually Integration
 
-I will integrate the tool with todoist to have it automatically use the API to fetch the tasks and update the tool to tell you the current task based on what you have in todoist
+I will integrate the tool with todoist to have it automatically use the API to fetch the tasks and update the tool to tell you the current task based on what you have in todoist and block until the task is done.
 
 # New Feature: User Input for Task
 
