@@ -32,6 +32,10 @@ A tool like this that combines both browser blocking functionality (websites) an
 
 Your eyes control your focus; this has been backed by neuroscientific studies. However, audio remains the key issue when it comes to distractions. Audio is the most distracting of the five senses, which is why when using a computer, it is effective to use a tool like brain.fm or endel to create a personalized focus environment. So by blocking websites and apps, the eyes are controlled. By using the audio, the ears are controlled. By using the keyboard, the tactile senses are controlled. This would create the most productive computer in the world. The next task would be using AI to assist with what to spend time on, not how you spend the time.
 
+# Eventually Integration
+
+I will integrate the tool with todoist to have it automatically use the API to fetch the tasks and update the tool to tell you the current task based on what you have in todoist
+
 # New Feature: User Input for Task
 
 The tool now includes a feature that asks the user for the task they want to achieve before determining if a website is productive. This user input is used by the AI to determine the relevance of websites, making the tool more effective in blocking irrelevant websites and improving productivity.
