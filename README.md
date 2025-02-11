@@ -3,7 +3,7 @@ One way to accelerate this project would be to use AI, this originally would hav
 
 # Inital Hurdle:
 
-Real-time content analysis is required.
+Real-time content analysis and categorization is required.
 
 # What exists now:
 
