@@ -17,3 +17,6 @@ Manual lists can be used and inputed by the user for sites the AI should not ana
 # Ambitious Is it achieveable?
 
 Yes this project is fully achieveable considering the technology that is available today, it just has to be done. I currently lack the time to put this into practicality however, soon I will have the time, and then I will develop this project.
+
+# The Issue:
+Currently, websites are not the only distracting element of computers, there is also apps, AI-detection of apps is where the practicality goes down, so I am actively brainstroming solutions to this dillemia.
