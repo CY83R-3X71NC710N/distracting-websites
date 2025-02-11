@@ -2,26 +2,41 @@ import requests
 from bs4 import BeautifulSoup
 from google import genai
 from urllib.parse import urlparse
+from typing import List, Optional
+import re
+
+class Question:
+    def __init__(self, text: str):
+        self.text = self.clean_question(text)
+    
+    @staticmethod
+    def clean_question(text: str) -> str:
+        # Remove markdown, numbering, and extra spaces
+        text = re.sub(r'\*\*|\d+\.\s+', '', text)
+        return text.strip()
+    
+    def ask(self) -> str:
+        print("\n" + "-" * 80)
+        print(f"Question: {self.text}")
+        print("-" * 80)
+        return input("Your answer: ").strip()
 
 def get_user_task():
     initial_task = input("Please enter the task you want to achieve: ")
     return ask_additional_questions(initial_task)
 
-def get_specific_questions(task_details):
+def get_specific_questions(task_details: str) -> List[Question]:
     prompt = f"""
     Based on these task details: "{task_details}"
     
-    Generate detailed questions to understand the user's exact needs.
-    Focus on:
-    - Technical requirements
-    - Skill level and background
-    - Specific goals and outcomes
-    - Time constraints
-    - Required resources
-    - Practical use cases
+    Generate 3 concise but specific questions about:
+    1. The exact goal/output needed
+    2. Technical requirements or constraints
+    3. User's background/experience level
     
-    Format: Generate 3-5 specific, detailed questions that haven't been asked before.
-    If the task is already specific enough, respond with "SUFFICIENT_DETAIL".
+    Format: Return only the questions, one per line.
+    Each question should be clear, direct, and require a specific answer.
+    If task is already specific enough, respond with exactly "SUFFICIENT_DETAIL"
     """
     
     try:
@@ -30,7 +45,14 @@ def get_specific_questions(task_details):
             model="gemini-2.0-flash",
             contents=prompt
         )
-        return response.text.strip()
+        response_text = response.text.strip()
+        
+        if response_text == "SUFFICIENT_DETAIL":
+            return []
+            
+        # Filter out empty lines and create Question objects
+        questions = [Question(q) for q in response_text.split('\n') if q.strip()]
+        return questions[:3]  # Limit to 3 questions
     except Exception as e:
         print(f"Error generating questions: {e}")
         return []
@@ -63,25 +85,27 @@ def is_task_specific_enough(task_details):
         print(f"Error checking task specificity: {e}")
         return False
 
-def ask_additional_questions(task_details):
-    while not is_task_specific_enough(task_details):
-        print("\nLet's gather more specific information:")
-        questions = get_specific_questions(task_details)
+def ask_additional_questions(task_details: str) -> str:
+    iteration = 1
+    max_iterations = 3
+    
+    while iteration <= max_iterations:
+        print(f"\n[Round {iteration}/{max_iterations}] Analyzing task specificity...")
         
-        if questions == "SUFFICIENT_DETAIL":
+        questions = get_specific_questions(task_details)
+        if not questions:
+            print("\n✅ Task is now specific enough!")
             break
             
-        if isinstance(questions, str):
-            questions = questions.split('\n')
-        
-        new_answers = []
+        print("\nLet's get more specific details about your task:")
+        answers = []
         for question in questions:
-            if question and len(question.strip()) > 0:
-                answer = input(f"{question.strip()}\nYour answer: ")
-                new_answers.append(f"{question.strip()}: {answer}")
+            answer = question.ask()
+            if answer:
+                answers.append(f"{question.text}: {answer}")
         
-        task_details = f"{task_details}\nAdditional Details: {'; '.join(new_answers)}"
-        print("\nAnalyzing if we need more information...")
+        task_details = f"{task_details}\nDetails (Round {iteration}): {'; '.join(answers)}"
+        iteration += 1
     
     return task_details
 
@@ -156,14 +180,22 @@ def determine_relevance(task_details, website):
         return False
 
 def main():
-    task = get_user_task()
-    website = input("Enter the website URL to analyze: ")
+    print("\n" + "=" * 80)
+    print("Website Productivity Analyzer".center(80))
+    print("=" * 80 + "\n")
     
-    print(f"\nAnalyzing {website} for productivity...")
+    task = get_user_task()
+    website = input("\nEnter the website URL to analyze: ")
+    
+    print("\n" + "-" * 80)
+    print(f"Analyzing {website} for productivity...")
+    print("-" * 80)
+    
     if determine_relevance(task, website):
         print(f"\n✅ {website} is productive for your task.")
     else:
         print(f"\n❌ {website} is not productive for your task.")
+    print("\n" + "=" * 80)
 
 if __name__ == "__main__":
     main()
