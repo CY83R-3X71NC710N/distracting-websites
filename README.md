@@ -50,3 +50,34 @@ The tool now includes a feature that asks the user additional questions if the t
 
 # TODO:
 The AI needs to ask additional questions about their task if they provide a task too general, and it needs to find information directly from the website to determine if it is productive for the task.
+
+# Installation
+
+To use the Gemini API, you need to install the `google-genai` package. You can do this using pip:
+
+```sh
+pip install -q -U google-genai
+```
+
+# Obtaining a Gemini API Key
+
+To use the Gemini API, you need to obtain an API key from Google AI Studio. Follow these steps:
+
+1. Go to the [Google AI Studio](https://ai.google.com/studio) website.
+2. Sign in with your Google account.
+3. Navigate to the API section and generate a new API key.
+4. Copy the API key and use it in your code.
+
+# Example Code
+
+Here is an example of how to use the Gemini API to generate content:
+
+```python
+from google import genai
+
+client = genai.Client(api_key="YOUR_API_KEY")
+response = client.models.generate_content(
+    model="gemini-2.0-flash", contents="Explain how AI works"
+)
+print(response.text)
+```

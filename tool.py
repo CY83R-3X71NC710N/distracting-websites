@@ -1,6 +1,6 @@
-import openai
 import requests
 from bs4 import BeautifulSoup
+from google import genai
 
 def get_user_task():
     task = input("Please enter the task you want to achieve: ")
@@ -10,12 +10,11 @@ def get_user_task():
 
 def is_task_too_general(task):
     # Placeholder for logic to determine if the task is too general
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=f"Is the task '{task}' too general?",
-        max_tokens=10
+    client = genai.Client(api_key="YOUR_API_KEY")
+    response = client.models.generate_content(
+        model="gemini-2.0-flash", contents=f"Is the task '{task}' too general?"
     )
-    return response.choices[0].text.strip().lower() == "yes"
+    return response.text.strip().lower() == "yes"
 
 def ask_additional_questions(task):
     additional_info = input("Your task seems too general. Can you provide more details? ")
@@ -32,12 +31,11 @@ def get_website_info(website):
 
 def determine_relevance(task, website):
     website_info = get_website_info(website)
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=f"Is the website {website} relevant for the task {task}? Here is some information from the website: {website_info}",
-        max_tokens=10
+    client = genai.Client(api_key="YOUR_API_KEY")
+    response = client.models.generate_content(
+        model="gemini-2.0-flash", contents=f"Is the website {website} relevant for the task {task}? Here is some information from the website: {website_info}"
     )
-    relevance = response.choices[0].text.strip().lower()
+    relevance = response.text.strip().lower()
     return relevance == "yes"
 
 def main():
