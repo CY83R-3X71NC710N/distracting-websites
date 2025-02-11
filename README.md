@@ -10,3 +10,6 @@ Real-time content analysis is required.
 * Website Categorization APIs: Several APIs (like Google Cloud's Natural Language API, Amazon Comprehend, or specialized website categorization services) can analyze website content and attempt to categorize it (e.g., news, social media, shopping). These are a good starting point but aren't perfect at detecting "distraction" as it's subjective.
 * Browser Extensions with Blocking Features: Many browser extensions (like StayFocusd, LeechBlock, or similar) allow you to block websites based on lists or schedules. These are powerful but rely on manually curated lists.
 * Focus Apps: Apps like Freedom or Cold Turkey can block distracting apps and websites across devices, often with scheduling features. Again, they usually rely on pre-defined lists.
+
+# Privacy/Security Issues:
+Manual lists can be used and inputed by the user for sites the AI should not analyze, these include banking sites, etc.
