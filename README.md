@@ -13,3 +13,7 @@ Real-time content analysis is required.
 
 # Privacy/Security Issues:
 Manual lists can be used and inputed by the user for sites the AI should not analyze, these include banking sites, etc.
+
+# Ambitious Is it achieveable?
+
+Yes this project is fully achieveable considering the technology that is available today, it just has to be done. I currently lack the time to put this into practicality however, soon I will have the time, and then I will develop this project.
