@@ -20,3 +20,6 @@ Yes this project is fully achieveable considering the technology that is availab
 
 # The Issue:
 Currently, websites are not the only distracting element of computers, there is also apps, AI-detection of apps is where the practicality of the project goes down, so I am actively brainstroming solutions to this dillemia.
+
+# My Take On Existing Tools
+They are not effective considering the adaptable nature of websites, however, with the rise of AI this can be resolved.
