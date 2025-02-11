@@ -23,3 +23,7 @@ Currently, websites are not the only distracting element of computers, there is 
 
 # My Take On Existing Tools
 They are not effective considering the adaptable nature of websites, however, with the rise of AI this can be resolved.
+
+# What could a tool like this do?:
+
+A tool like this that combines both browser blocking functionality (websites) and app blocking functionality (TBD) would be game-changing for productivity both in schools, the workplace, and overall more healthy use of computers in an information-overloaded society, having the AI determine what is useful for the given task and blocking what is not is not just a tool at this point. It is freedom to have Computers be your asset not your liablity.
