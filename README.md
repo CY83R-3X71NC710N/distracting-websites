@@ -12,7 +12,7 @@ Real-time content analysis and categorization is required.
 * Focus Apps: Apps like Freedom or Cold Turkey can block distracting apps and websites across devices, often with scheduling features. Again, they usually rely on pre-defined lists.
 
 # Privacy/Security Issues:
-Manual lists can be used and inputed by the user for sites the AI should not analyze, these include banking sites, etc.
+Manual lists can be used and inputed by the user for sites the AI should not analyze, these include banking sites, etc. Or... Another solution would be completely running the AI locally, this would slow down the computer and likely have safety if local files are deleting using urandom overwrite.
 
 # Ambitious Is it achieveable?
 
