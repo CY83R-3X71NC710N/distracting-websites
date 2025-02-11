@@ -40,5 +40,13 @@ I will integrate the tool with todoist to have it automatically use the API to f
 
 The tool now includes a feature that asks the user for the task they want to achieve before determining if a website is productive. This user input is used by the AI to determine the relevance of websites, making the tool more effective in blocking irrelevant websites and improving productivity.
 
+# New Feature: Obtaining Information Directly from Websites
+
+The tool now includes a feature that obtains information directly from the website to determine its relevance for the task. This allows the AI to make more informed decisions about whether a website is productive or not, improving the accuracy of the tool.
+
+# New Feature: Asking Additional Questions
+
+The tool now includes a feature that asks the user additional questions if the task they provide is too general. This helps the AI to better understand the user's needs and make more accurate determinations about the relevance of websites.
+
 # TODO:
 The AI needs to ask additional questions about their task if they provide a task too general, and it needs to find information directly from the website to determine if it is productive for the task.
