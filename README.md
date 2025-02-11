@@ -81,3 +81,6 @@ response = client.models.generate_content(
 )
 print(response.text)
 ```
+
+# Further Goals
+Develop a browser extension which integrates with our python and only allows you to use the browser once you have answered the questions, additionally, it should display block screens for websites you cannot use and a splash screen while the content is being filtered.
