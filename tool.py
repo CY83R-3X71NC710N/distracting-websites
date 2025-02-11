@@ -40,7 +40,7 @@ def determine_relevance(task, website):
 
 def main():
     task = get_user_task()
-    websites = ["https://example.com", "https://anotherexample.com"]  # Replace with actual list of websites
+    websites = ["https://github.com"]  # Replace with actual list of websites
     productive_websites = []
 
     for website in websites:
